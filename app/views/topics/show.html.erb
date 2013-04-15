@@ -1,0 +1,5 @@
+<h1><%= @topic.title %></h1>
+<%= link_to "edit", edit_topic_path(@topic) %> | 
+<%= link_to "delete", topic_path(@topic), method: "delete",
+      confirm: "Permenantely delete topic?" %> <br />
+<%= @topic.body %>
