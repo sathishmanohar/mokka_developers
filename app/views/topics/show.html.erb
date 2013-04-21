@@ -2,4 +2,8 @@
 <%= link_to "edit", edit_topic_path(@topic) %> | 
 <%= link_to "delete", topic_path(@topic), method: "delete",
       confirm: "Permenantely delete topic?" %> <br />
-<%= @topic.body %>
+<div class="row">
+  <div class="span8">
+    <%= @topic.body.html_safe %>
+  </div>
+</div>

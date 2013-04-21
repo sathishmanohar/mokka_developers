@@ -1,3 +1,7 @@
+<table class="table">
 <% @topics.each do |topic| %>
-  <%= link_to topic.title, topic_path(topic) %><br />
+  <tr>
+    <td><%= link_to topic.title, topic_path(topic) %></td>
+  </tr>
 <% end %>
+</table>
