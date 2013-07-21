@@ -7,3 +7,10 @@
     <%= @topic.body.html_safe %>
   </div>
 </div>
+<div class="row">
+  <% @replies.each do |reply| %>
+    <div class="reply span8">
+      <%= reply.body %>
+    </div>
+  <% end %>
+</div>

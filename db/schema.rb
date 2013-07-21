@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130413164138) do
+ActiveRecord::Schema.define(:version => 20130721155639) do
+
+  create_table "replies", :force => true do |t|
+    t.integer  "topic_id"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "topics", :force => true do |t|
     t.string   "title"
