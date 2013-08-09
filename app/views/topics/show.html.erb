@@ -1,16 +1,32 @@
-<h1><%= @topic.title %></h1>
-<%= link_to "edit", edit_topic_path(@topic) %> | 
-<%= link_to "delete", topic_path(@topic), method: "delete",
-      confirm: "Permenantely delete topic?" %> <br />
+<div class="row">
+  <div class="span8">
+    <h1><%= @topic.title %></h1>
+  </div>
+  <div class="span4">
+    <%= link_to "<i class='icon icon-edit' title='edit'></i>".html_safe, edit_topic_path(@topic) %>
+    <%= link_to "<i class='icon icon-trash' title='delete'></i>".html_safe, topic_path(@topic),
+      method: "delete", confirm: "Permenantely delete topic?" %>
+  </div>
+</div>
 <div class="row">
   <div class="span8">
     <%= @topic.body.html_safe %>
   </div>
 </div>
+<br />
 <div class="row">
+  <div class="span8 new_reply">
+    <%= simple_form_for([@topic, @reply],
+                       defaults: { label: false }) do |f| %>
+      <%= f.input :body, as: :text,
+        input_html: { rows: 2, placeholder: "Your reply here",
+        class: "span8" } %>
+      <%= f.submit "Reply", class: "btn btn-primary pull-right" %>
+    <% end %>
+  </div>
   <% @replies.each do |reply| %>
-    <div class="reply span8">
-      <%= reply.body %>
-    </div>
+      <div class="reply span8">
+        <%= reply.body %>
+      </div>
   <% end %>
 </div>
