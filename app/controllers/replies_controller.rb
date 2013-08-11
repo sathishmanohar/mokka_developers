@@ -11,5 +11,14 @@ class RepliesController < ApplicationController
   end
 
   def destroy
+    @topic = Topic.find(params[:topic_id])
+    @reply = Reply.find(params[:id])
+
+    if @reply.destroy
+      redirect_to @topic
+      flash[:success] = "Reply Deleted"
+    else
+      flash[:error] = "Error deleting reply"
+    end
   end
 end

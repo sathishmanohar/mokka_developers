@@ -27,6 +27,13 @@
   <% @replies.each do |reply| %>
       <% next unless reply.body #To prevent empty reply from showing %>
       <div class="reply span8">
+        <div class="dropdown reply_controls pull-right">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon icon-chevron-down"></i></a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li> <%= link_to "<i class='icon icon-edit' title='Edit reply'></i> Edit reply".html_safe, "#" %> </li>
+            <li> <%= link_to "<i class='icon icon-trash' title='Delete reply'></i> Delete reply".html_safe, topic_reply_path(@topic.id, reply.id), method: :delete, confirm: "Delete Reply?" %> </li>
+          </ul>
+        </div>
         <%= reply.body %>
       </div>
   <% end %>
