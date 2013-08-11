@@ -25,6 +25,7 @@
     <% end %>
   </div>
   <% @replies.each do |reply| %>
+      <% next unless reply.body #To prevent empty reply from showing %>
       <div class="reply span8">
         <%= reply.body %>
       </div>
