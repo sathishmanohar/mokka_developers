@@ -12,6 +12,7 @@ gem 'country_select'
 
 gem 'mysql2'
 gem 'devise'
+gem 'cancan'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
