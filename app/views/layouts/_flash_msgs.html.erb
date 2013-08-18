@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="span2">&nbsp;</div>
+    <div class="span8">
+      <% flash.each do |name, msg| %>
+        <% if name == :error %>
+          <div class="alert alert-error">
+        <% elsif name == :success %>
+          <div class="alert alert-success">
+        <% elsif name == :name %>
+          <div class="alert alert-notice">
+        <% else %>
+          <div class="alert">
+        <% end %>
+          <a class="close" data-dismiss="alert" href="#">&times;</a>
+          <%= msg %>
+          </div>
+      <% end %>
+    </div>
+    <div class="span2">&nbsp;</div>
+  </div>
+</div> <!-- End container -->
